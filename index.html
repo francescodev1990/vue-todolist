@@ -12,26 +12,32 @@
 
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
+
     <div id="app">
         <div class="container">
-            <h1>Todo List Vue</h1>
+            <h2>Todo List Vue</h2>
             <ol>
                 <li v-for="item in todolist">
                     {{ item }}
                 </li>
             </ol>
-            <input class="form-control" placeholder="Inserisci un nuovo promemoria" v-model="nuovoPromemoria">
-            <button id="btn">Invia!</button>
+            <input class="form-control" placeholder="Inserisci un nuovo promemoria" v-model="newTask" 
+            @keyup.enter="addTask">
+            <button id="btn"@click="newTask">Aggiungi Promemoria!</button>
+        </div>
+        <div>
+
         </div>
     </div>
     
     <script>
+
         const { createApp } = Vue;
 
         createApp({
             data() {
                 return {
+                    newTask: '',
                     todolist: [
                         'Comprare il pane',
                         'Comprare la frutta',
@@ -41,7 +47,14 @@
                         'Creare un recinto per animali',
                     ]
                 }
-            }
+            },
+            methods: {
+                addTask()
+                {
+                    this.todolist.push(this.newTask)
+                    this.newTask = '';
+                }
+            },
         }).mount('#app');
     </script>
 
