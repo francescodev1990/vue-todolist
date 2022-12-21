@@ -27,3 +27,9 @@ input{
     text-align: center;
     border-radius: 10px;
 }
+#btn{
+    height: 50px;
+    width: 60px;
+    border-radius: 15px;
+    margin-left: 25px;
+}
