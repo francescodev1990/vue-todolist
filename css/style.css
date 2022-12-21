@@ -20,6 +20,10 @@ ol{
     margin-left: 25px;
     list-style-type: circle;
 }
+li:hover{
+    cursor: pointer;
+    color: grey;
+}
 h1{
     color: blue;
     text-align: center;
